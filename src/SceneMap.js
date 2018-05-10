@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from ‘react’;
 
 export default function SceneMap(scenes: { [key: string]: Function }) {
   class SceneComponent extends PureComponent<void, *, void> {
@@ -10,5 +10,10 @@ export default function SceneMap(scenes: { [key: string]: Function }) {
     }
   }
 
-  return ({ route }: *) => <SceneComponent key={route.key} route={route} />;
+  return ({ route, jumpToIndex }: *) => (
+    <SceneComponent
+      key={route.key} route={route}
+      jumpToIndex={jumpToIndex}
+    />
+  );
 }
